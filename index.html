@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-white">JD</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-blue-200 transition-colors duration-300">Home</a>
+                    <a href="about.html" class="text-white hover:text-blue-200 transition-colors duration-300">About</a>
+                    <a href="projects.html" class="text-white hover:text-blue-200 transition-colors duration-300">Projects</a>
+                    <a href="skills.html" class="text-white hover:text-blue-200 transition-colors duration-300">Skills</a>
+                    <a href="contact.html" class="text-white hover:text-blue-200 transition-colors duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">About</a>
+                <a href="projects.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Projects</a>
+                <a href="skills.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Skills</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-white opacity-10 rounded-full animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-white opacity-5 rounded-full animate-float" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white opacity-5 rounded-full animate-float" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Hi, I'm <span class="text-gradient">John Doe</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 animate-slide-up">
+                    Full Stack Developer & UI/UX Designer
+                </p>
+                <p class="text-lg text-blue-200 mb-12 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                    I create beautiful, functional, and user-centered digital experiences. 
+                    Passionate about clean code and innovative solutions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.4s;">
+                    <a href="projects.html" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="contact.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Here are some of my recent projects that showcase my skills and creativity
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 animate-slide-in-left">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">A modern e-commerce solution with React, Node.js, and MongoDB</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">MongoDB</span>
+                        </div>
+                        <a href="projects.html" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors duration-300">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 animate-slide-up">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-400 to-blue-600 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Task Management App</h3>
+                        <p class="text-gray-600 mb-4">A collaborative task management application with real-time updates</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Firebase</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Tailwind</span>
+                        </div>
+                        <a href="projects.html" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors duration-300">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 animate-slide-in-right">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive analytics dashboard with interactive charts</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Angular</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">D3.js</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Python</span>
+                        </div>
+                        <a href="projects.html" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors duration-300">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-slide-up" style="animation-delay: 0.6s;">
+                <a href="projects.html" class="inline-flex items-center px-8 py-3 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105">
+                    View All Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Preview Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Skills & Technologies</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    I work with a variety of technologies to create amazing digital experiences
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="text-center group animate-slide-in-left">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fab fa-react text-4xl text-blue-500"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">React</p>
+                </div>
+                
+                <div class="text-center group animate-slide-up">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fab fa-node-js text-4xl text-green-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">Node.js</p>
+                </div>
+                
+                <div class="text-center group animate-slide-up">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fab fa-js-square text-4xl text-yellow-500"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">JavaScript</p>
+                </div>
+                
+                <div class="text-center group animate-slide-up">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fab fa-python text-4xl text-blue-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">Python</p>
+                </div>
+                
+                <div class="text-center group animate-slide-up">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fab fa-aws text-4xl text-orange-500"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">AWS</p>
+                </div>
+                
+                <div class="text-center group animate-slide-in-right">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fab fa-docker text-4xl text-blue-700"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">Docker</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-slide-up" style="animation-delay: 0.6s;">
+                <a href="skills.html" class="inline-flex items-center px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105">
+                    View All Skills
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    Let's work together to bring your ideas to life. I'm always excited to take on new challenges and create something amazing.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                    <a href="about.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+                        Learn More About Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">John Doe</h3>
+                    <p class="text-gray-400 mb-4">
+                        Full Stack Developer passionate about creating beautiful and functional digital experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors duration-300">Projects</a></li>
+                        <li><a href="skills.html" class="text-gray-400 hover:text-white transition-colors duration-300">Skills</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>john.doe@email.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

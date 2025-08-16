@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - John Doe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-white">JD</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-blue-200 transition-colors duration-300">Home</a>
+                    <a href="about.html" class="text-white hover:text-blue-200 transition-colors duration-300">About</a>
+                    <a href="projects.html" class="text-white hover:text-blue-200 transition-colors duration-300">Projects</a>
+                    <a href="skills.html" class="text-white hover:text-blue-200 transition-colors duration-300">Skills</a>
+                    <a href="contact.html" class="text-white hover:text-blue-200 transition-colors duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">About</a>
+                <a href="projects.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Projects</a>
+                <a href="skills.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Skills</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-white opacity-10 rounded-full animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-white opacity-5 rounded-full animate-float" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                    My <span class="text-gradient">Projects</span>
+                </h1>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    A collection of my work showcasing various technologies and creative solutions
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 animate-slide-up">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Filter Projects</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="filter-btn active px-6 py-2 rounded-full border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300" data-filter="all">
+                        All Projects
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300" data-filter="web">
+                        Web Apps
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300" data-filter="mobile">
+                        Mobile Apps
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300" data-filter="ecommerce">
+                        E-Commerce
+                    </button>
+                    <button class="filter-btn px-6 py-2 rounded-full border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300" data-filter="dashboard">
+                        Dashboards
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Project 1 - E-Commerce -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-in-left" data-category="ecommerce web">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-white text-purple-600 text-sm rounded-full font-semibold">Featured</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">A modern e-commerce solution with advanced features like real-time inventory, payment processing, and admin dashboard.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">MongoDB</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Stripe</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-xl"></i>
+                                </a>
+                            </div>
+                            <span class="text-sm text-gray-500">2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Mobile App -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-up" data-category="mobile">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-400 to-blue-600 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Task Management App</h3>
+                        <p class="text-gray-600 mb-4">A collaborative task management application with real-time updates, team collaboration, and progress tracking.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React Native</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Firebase</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Redux</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-xl"></i>
+                                </a>
+                            </div>
+                            <span class="text-sm text-gray-500">2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Dashboard -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-in-right" data-category="dashboard">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive analytics dashboard with interactive charts, real-time data visualization, and custom reporting.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Angular</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">D3.js</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Python</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-xl"></i>
+                                </a>
+                            </div>
+                            <span class="text-sm text-gray-500">2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Web App -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-in-left" data-category="web">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
+                            <i class="fas fa-calendar-alt text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Event Management System</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive event management platform with booking, scheduling, and attendee management features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">MySQL</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-xl"></i>
+                                </a>
+                            </div>
+                            <span class="text-sm text-gray-500">2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 - E-Commerce -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-up" data-category="ecommerce">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-teal-400 to-blue-600 flex items-center justify-center">
+                            <i class="fas fa-store text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Online Marketplace</h3>
+                        <p class="text-gray-600 mb-4">A multi-vendor marketplace platform with seller management, commission system, and advanced search.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Next.js</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">AWS</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-xl"></i>
+                                </a>
+                            </div>
+                            <span class="text-sm text-gray-500">2021</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Dashboard -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden animate-slide-in-right" data-category="dashboard">
+                    <div class="relative overflow-hidden">
+                        <div class="w-full h-48 bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-tachometer-alt text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">CRM Dashboard</h3>
+                        <p class="text-gray-600 mb-4">A customer relationship management dashboard with lead tracking, sales analytics, and team performance metrics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">MongoDB</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-xl"></i>
+                                </a>
+                            </div>
+                            <span class="text-sm text-gray-500">2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="animate-slide-in-left">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">50+</div>
+                    <div class="text-gray-600">Projects Completed</div>
+                </div>
+                <div class="animate-slide-up">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">30+</div>
+                    <div class="text-gray-600">Happy Clients</div>
+                </div>
+                <div class="animate-slide-up">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">8+</div>
+                    <div class="text-gray-600">Years Experience</div>
+                </div>
+                <div class="animate-slide-in-right">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">15+</div>
+                    <div class="text-gray-600">Technologies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-6">Have a Project in Mind?</h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    Let's work together to bring your ideas to life. I'm always excited to take on new challenges.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                        Start a Project
+                    </a>
+                    <a href="skills.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+                        View My Skills
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">John Doe</h3>
+                    <p class="text-gray-400 mb-4">
+                        Full Stack Developer passionate about creating beautiful and functional digital experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors duration-300">Projects</a></li>
+                        <li><a href="skills.html" class="text-gray-400 hover:text-white transition-colors duration-300">Skills</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>john.doe@email.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>

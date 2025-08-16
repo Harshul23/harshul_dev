@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - John Doe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .form-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-white">JD</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-blue-200 transition-colors duration-300">Home</a>
+                    <a href="about.html" class="text-white hover:text-blue-200 transition-colors duration-300">About</a>
+                    <a href="projects.html" class="text-white hover:text-blue-200 transition-colors duration-300">Projects</a>
+                    <a href="skills.html" class="text-white hover:text-blue-200 transition-colors duration-300">Skills</a>
+                    <a href="contact.html" class="text-white hover:text-blue-200 transition-colors duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">About</a>
+                <a href="projects.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Projects</a>
+                <a href="skills.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Skills</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:text-blue-200 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-white opacity-10 rounded-full animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-white opacity-5 rounded-full animate-float" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                    Get In <span class="text-gradient">Touch</span>
+                </h1>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Let's discuss your project and see how I can help bring your ideas to life
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="animate-slide-in-left">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8">Send Me a Message</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required 
+                                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-300">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required 
+                                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-300">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-300">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required 
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-300">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="6" required 
+                                      class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="animate-slide-in-right">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        I'm always excited to hear about new projects and opportunities. Feel free to reach out through any of the channels below.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="contact-card bg-gray-50 p-6 rounded-2xl">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Email</h3>
+                                    <p class="text-gray-600">john.doe@email.com</p>
+                                    <p class="text-sm text-gray-500">I'll respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card bg-gray-50 p-6 rounded-2xl">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Phone</h3>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    <p class="text-sm text-gray-500">Available Mon-Fri, 9AM-6PM PST</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card bg-gray-50 p-6 rounded-2xl">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Location</h3>
+                                    <p class="text-gray-600">San Francisco, CA</p>
+                                    <p class="text-sm text-gray-500">Open to remote work worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-12">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Follow Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-github text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-linkedin-in text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-twitter text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-purple-600 transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-instagram text-white text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">
+                    Common questions about working with me
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm animate-slide-in-left">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">What types of projects do you work on?</h3>
+                    <p class="text-gray-600">I specialize in full-stack web development, including e-commerce platforms, web applications, mobile apps, and custom software solutions. I work with both startups and established businesses.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">What is your typical project timeline?</h3>
+                    <p class="text-gray-600">Project timelines vary depending on complexity. Small projects typically take 2-4 weeks, medium projects 1-3 months, and large projects 3-6 months. I always provide detailed timelines during the planning phase.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm animate-slide-in-right">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Do you provide ongoing support after project completion?</h3>
+                    <p class="text-gray-600">Yes, I offer various support packages including maintenance, updates, and technical support. I believe in building long-term relationships with my clients.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm animate-slide-in-left">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">What is your communication style during projects?</h3>
+                    <p class="text-gray-600">I maintain regular communication through scheduled check-ins, progress updates, and am always available for urgent questions. I use project management tools to keep everyone informed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Where to Find Me</h2>
+                <p class="text-xl text-gray-600">
+                    Based in San Francisco, but available for remote work worldwide
+                </p>
+            </div>
+
+            <div class="bg-gray-200 rounded-2xl h-96 flex items-center justify-center animate-slide-up">
+                <div class="text-center">
+                    <i class="fas fa-map-marked-alt text-6xl text-gray-400 mb-4"></i>
+                    <p class="text-xl text-gray-600">Interactive Map Coming Soon</p>
+                    <p class="text-gray-500">San Francisco, California</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    Let's discuss your ideas and create something amazing together.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact-form" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                        Send Message
+                    </a>
+                    <a href="projects.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">John Doe</h3>
+                    <p class="text-gray-400 mb-4">
+                        Full Stack Developer passionate about creating beautiful and functional digital experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors duration-300">Projects</a></li>
+                        <li><a href="skills.html" class="text-gray-400 hover:text-white transition-colors duration-300">Skills</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>john.doe@email.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
